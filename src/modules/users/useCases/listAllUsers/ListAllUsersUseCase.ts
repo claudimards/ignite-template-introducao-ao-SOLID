@@ -2,7 +2,7 @@ import { User } from "../../model/User";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 interface IRequest {
-  user_id: string;
+  user_id: string | string[];
 }
 
 class ListAllUsersUseCase {
@@ -13,7 +13,11 @@ class ListAllUsersUseCase {
     const user = this.usersRepository.findById(user_id);
     const isAdmin = user.admin;
 
-    if (!user || !isAdmin) {
+    if (!user) {
+      throw new Error("Mensagem do erro");
+    }
+
+    if (!isAdmin) {
       throw new Error("Mensagem do erro");
     }
 

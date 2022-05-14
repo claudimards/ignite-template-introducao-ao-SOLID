@@ -14,10 +14,6 @@ class User {
       this.id = uuidV4();
     }
 
-    if (!this.created_at) {
-      this.created_at = new Date();
-    }
-
     this.admin = false;
   }
 }

@@ -16,7 +16,9 @@ class TurnUserAdminUseCase {
       throw new Error("Mensagem do erro");
     }
 
-    return this.usersRepository.turnAdmin(user);
+    const userAsAdmin = this.usersRepository.turnAdmin(user);
+
+    return userAsAdmin;
   }
 }
 
